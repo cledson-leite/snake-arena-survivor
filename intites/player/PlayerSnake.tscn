@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgw0pk0juhsk2"]
+[gd_scene load_steps=4 format=3 uid="uid://bgw0pk0juhsk2"]
 
 [ext_resource type="Texture2D" uid="uid://bj6h7v6kenq2l" path="res://intites/player/sprites/cabeca.png" id="1_ar7r7"]
+[ext_resource type="Script" uid="uid://by082xu763wfy" path="res://intites/player/scripts/PlayerSnake.gd" id="2_lj6xe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lj6xe"]
 radius = 16.124516
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("2_lj6xe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ar7r7")
