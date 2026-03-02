@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgw0pk0juhsk2"]
+
+[ext_resource type="Texture2D" uid="uid://bj6h7v6kenq2l" path="res://intites/player/sprites/cabeca.png" id="1_ar7r7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj6xe"]
+radius = 16.124516
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ar7r7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lj6xe")
