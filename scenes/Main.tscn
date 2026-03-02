@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dahcn35s53afg"]
+[gd_scene load_steps=3 format=3 uid="uid://dahcn35s53afg"]
 
 [ext_resource type="PackedScene" uid="uid://bgw0pk0juhsk2" path="res://intites/player/PlayerSnake.tscn" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://cwucilr8xglk7" path="res://intites/player/sprites/corpo.png" id="2_rvslj"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_elqb8")]
 position = Vector2(475, 234)
+
+[node name="Corpo" type="Sprite2D" parent="."]
+position = Vector2(479, 273)
+texture = ExtResource("2_rvslj")
