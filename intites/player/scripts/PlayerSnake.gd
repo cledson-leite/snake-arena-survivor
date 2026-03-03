@@ -20,9 +20,6 @@ func _ready() -> void:
 	var history_lenght := max_segments * segment_spacing
 	for i in range(history_lenght):
 		position_history.append(global_position)
-		
-	for i in 3:
-		add_body_segment(body_scene)
 
 func _physics_process(delta: float) -> void:
 	var input_direction := Input.get_vector(
@@ -64,12 +61,19 @@ func _physics_process(delta: float) -> void:
 		
 		if history_index < position_history.size():
 			body_segments[i].global_position = position_history[history_index]
+	
+	if Input.is_action_just_pressed("grow"):
+		add_body_segment(body_scene)
 
 func add_body_segment(scene: PackedScene) -> void:
 	if body_segments.size() >= max_segments:
 		return
 	var segment = scene.instantiate() as Node2D
 	add_child(segment)
-	
-	segment.global_position = global_position
+	var index := (body_segments.size() + 1) * segment_spacing
+	if index < position_history.size():
+		segment.global_position = position_history[index]
+	else:	
+		segment.global_position = global_position
+		
 	body_segments.append(segment)
