@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://h3ntwkfk3ic4"]
 
-[ext_resource type="Script" uid="uid://cw10c7ltbsoob" path="res://intites/inimigo/scripts/enemy_basic.gd" id="1_wqrow"]
+[ext_resource type="Script" uid="uid://cw10c7ltbsoob" path="res://intites/inimigo/scripts/EnemyBasic.gd" id="1_wqrow"]
 [ext_resource type="Texture2D" uid="uid://dumk8aqt5okxc" path="res://intites/inimigo/sprites/inimigo.png" id="2_grniy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qompt"]
