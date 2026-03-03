@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c35e33d4lrlgm"]
+
+[ext_resource type="Script" uid="uid://fb8jsqmhdf24" path="res://intites/inimigo/scripts/EnemySpawner.gd" id="1_0qa7i"]
+[ext_resource type="PackedScene" uid="uid://h3ntwkfk3ic4" path="res://intites/inimigo/EnemyBasic.tscn" id="2_017n4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0qa7i")
+enemy_scene = ExtResource("2_017n4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
