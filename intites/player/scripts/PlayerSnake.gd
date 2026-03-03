@@ -45,6 +45,19 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	var viewport_rect := get_viewport_rect()
+	var margin := 16
+	global_position.x = clamp(
+		global_position.x,
+		margin,
+		viewport_rect.size.x - margin
+	)
+	global_position.y = clamp(
+		global_position.y,
+		margin,
+		viewport_rect.size.y - margin
+	)
+	
 	var distance := global_position.distance_to(last_position_head)
 	if distance >= 1.0:
 		var direction := (global_position - last_position_head).normalized()
