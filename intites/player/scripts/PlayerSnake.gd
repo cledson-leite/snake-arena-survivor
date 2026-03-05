@@ -90,3 +90,16 @@ func add_body_segment(scene: PackedScene) -> void:
 		segment.global_position = global_position
 		
 	body_segments.append(segment)
+
+func take_damage():
+	if body_segments.size() == 0:
+		die()
+		return
+	
+	var segment = body_segments.pop_back()
+	segment.queue_free()
+	print("Player perdeu corpo")
+
+func die():
+	print("Player morreu")
+	queue_free()
