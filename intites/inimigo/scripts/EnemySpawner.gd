@@ -4,15 +4,11 @@ extends Node2D
 @export var spawn_margin: float = 64.0
 @export var screen_padding: float = 32.0
 
+var player
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	player = get_tree().get_first_node_in_group("player")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_timer_timeout() -> void:
@@ -22,10 +18,13 @@ func spawn_enemy() -> void:
 	if enemy_scene == null:
 		return
 	
-	var enemy = enemy_scene.instantiate() as Node2D
+	
+	var enemy = enemy_scene.instantiate() as EnemyBasic
 	get_parent().add_child(enemy)
 	
 	enemy.global_position = get_random_position_outside_screen()
+	if is_instance_valid(player):
+		enemy.damage_player.connect(player.take_damage)
 	
 func get_random_position_outside_screen() -> Vector2:
 	var viewport_size = get_viewport_rect().size
